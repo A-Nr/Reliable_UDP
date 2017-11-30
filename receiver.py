@@ -2,14 +2,19 @@ import socket
 import sys
 #creating sockets
 if __name__ == "__main__":
-    
+    #sending & reciving sockets
+    # socket.SOCK_DGRAM -> for UDP
     rdt_rcv =socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
     udt_send=socket.socket(socket.AF_INET, socket.SOCK_DAGRAM)
-    #
+    #taking listening hostname & port from the user
     listen_addr=sys.argv[1]
     listen_port=sys.argv[2]
+    #destination address& port number
     dest_addr = sys.argv[3]
     dest_port = int(sys.argv[4])
+    #Parm hostname:The hostnames to accept connections from, usually ‘’, which will accept from any host. It may also be ‘localhost’ for security reasons.
+    #Parm port:The port number to bind to. Must not already be in use.
+    ##sock.bind((hostname, port))
     rdt_rcv.bind(listen_addr,listen_port)
     #
     def ip_checksum(check):
