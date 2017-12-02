@@ -32,7 +32,7 @@ class rdtSocket:
                 #wait for ACK from right seq_number
                 try:
                     #receive ackmessage from receiver
-                    ackmessage, address = self.sock.recvfrom(4096)
+                    ackmessage, address = self.sock.recvfrom(2048)
                 except timeout:
                     #exception if timeout
                         print("Timeout")
@@ -41,7 +41,7 @@ class rdtSocket:
                 
                 #extract information from the ackmessage
                 ackmessage = ackmessage.decode('UTF-8')
-                #print (message)
+                #print (ackmessage)
                 checksum = ackmessage[:4]
                 ack_seq= ackmessage[7]
                 #check corrupted Or worng seq number
