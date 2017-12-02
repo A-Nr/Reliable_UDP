@@ -8,4 +8,4 @@ def udp_checksum(data):
     for i in range(0, size, 2):
         summation += (ord(data[i + 1]) << 8) + ord(data[i])
     summation = (summation >> 16) + (summation & 0xffff)
-    return hex((~summation) & 0x0ffff)[2:]
+    return "{0:04x}".format((~summation) & 0x0ffff)
